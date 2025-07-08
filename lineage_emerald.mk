@@ -27,5 +27,5 @@ PRIVATE_BUILD_DESC="emerald_p_id-user 14 UP1A.231005.007 V816.0.6.0.UNFIDXM rele
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
        TARGET_PRODUCT=emerald_p_id
-       
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
