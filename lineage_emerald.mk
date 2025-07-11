@@ -15,6 +15,22 @@ $(call inherit-product, device/xiaomi/emerald/device.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 
+RISING_MAINTAINER="onle"
+
+RISING_MAINTAINER := onle
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingMaintainer="onle"
+
+WITH_GMS := true
+TARGET_USES_PICO_GAPPS := true
+
+# Disable/enable blur support, false by default
+TARGET_ENABLE_BLUR := true
+
+# Whether to ship aperture camera, false by default
+PRODUCT_NO_CAMERA := false
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := emerald
 PRODUCT_NAME := lineage_emerald
@@ -22,10 +38,7 @@ PRODUCT_BRAND := POCO
 PRODUCT_MODEL := 2312FPCA6G
 PRODUCT_MANUFACTURER := Xiaomi
 
-BUILD_FINGERPRINT :=POCO/emerald_p_id/emerald:14/UP1A.231005.007/V816.0.6.0.UNFIDXM:user/release-keys
-PRIVATE_BUILD_DESC="emerald_p_id-user 14 UP1A.231005.007 V816.0.6.0.UNFIDXM release-keys"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-       TARGET_PRODUCT=emerald_p_id
+BUILD_FINGERPRINT :=POCO/emerald_p_id/emerald:15/AP3A.240905.015/OS2.0.7.0.VNFMIXM:user/release-keys
+PRIVATE_BUILD_DESC="emerald_p_id-user 15 AP3A.240905.015 OS2.0.7.0.VNFMIXM release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

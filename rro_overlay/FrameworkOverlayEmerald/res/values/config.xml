@@ -22,7 +22,11 @@
      entries do not follow the convention, but all new entries should. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-          <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
+    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
+         on the headphone/microphone jack. When false use the older uevent framework. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
     <integer-array name="config_udfps_sensor_props" translatable="false" >
       <!--
         <item>sensorLocationX</item>
@@ -34,7 +38,7 @@
         <item>88</item>
     </integer-array>
     
-<string-array name="config_biometric_sensors">
+    <string-array name="config_biometric_sensors">
       <item>0:2:15</item>
     </string-array>
     
@@ -53,7 +57,7 @@
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
-<!-- Array of hysteresis constraint values for brightening, represented as tenths of a
+    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
          percent. The length of this array is assumed to be one greater than
          config_ambientThresholdLevels. The brightening threshold is calculated as
          lux * (1.0f + CONSTRAINT_VALUE). When the current lux is higher than this threshold,
