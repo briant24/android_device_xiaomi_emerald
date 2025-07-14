@@ -16,6 +16,7 @@ import ${ro.vendor.rc}init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 
 on early-init
+    rm /metadata/boot_lc_full.txt
     start boot_lc
     write /proc/bootprof "INIT:early-init"
 
@@ -53,7 +54,6 @@ on init
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /dev/block /dev/block/bootdevice
-    start boot_lc
     # if primary storage is physical, set ro.vold.primary_physical to 1
     # setprop ro.vold.primary_physical 1
 
@@ -123,11 +123,9 @@ on charger
 
 on early-fs
     write /proc/bootprof "INIT:early-fs"
-    start boot_lc
 on fs
     write /proc/bootprof "INIT:fs"
     start vendor.boot-hal-1-2
-    start boot_lc
     # mount fstab
     write /proc/bootprof "INIT:Mount_START"
     write /sys/kernel/tracing/trace_marker "B|1|Mount"
@@ -1084,7 +1082,7 @@ service meta_tst /vendor/bin/meta_tst
     disabled
     oneshot
 
-service boot_lc /system/bin/logcat -b all -D -f /mnt/vendor/nvcfg/boot_lc_full.txt
+service boot_lc /system/bin/logcat -b all -D -f /metadata/boot_lc_full.txt
     class main
     user root
     group root system
